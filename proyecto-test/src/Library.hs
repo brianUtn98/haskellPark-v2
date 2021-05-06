@@ -48,13 +48,13 @@ type Atraccion = Persona -> Persona
 montañaRusa :: Number -> Number -> Atraccion
 montañaRusa velocidad altura persona
     | velocidad > 50 = aumentarEmocion (0.15*velocidad + altura) persona
-    | otherwise = ((disminuirEmocion 5) . (disminuirSatisfaccion 10)) persona
+    | otherwise = (disminuirEmocion 5) . (disminuirSatisfaccion 10) $ persona
 
 caidaLibre :: Number -> Atraccion
 caidaLibre metrosCaida persona = aumentarEmocion (metrosCaida * 0.2) persona
 
 mundoMaya :: Atraccion
-mundoMaya persona = ((aumentarPorcentajeEmocion 0.1) . (aumentarPorcentajeCultura 0.2)) persona
+mundoMaya persona = (aumentarPorcentajeEmocion 0.1) . (aumentarPorcentajeCultura 0.2) $ persona
 
 showDeMagia :: Atraccion
 showDeMagia persona
