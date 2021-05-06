@@ -47,7 +47,7 @@ type Atraccion = Persona -> Persona
 
 montañaRusa :: Number -> Number -> Atraccion
 montañaRusa velocidad altura persona
-    | velocidad > 50 = (aumentarEmocion (0.15*velocidad + altura) persona)
+    | velocidad > 50 = aumentarEmocion (0.15*velocidad + altura) persona
     | otherwise = ((disminuirEmocion 5) . (disminuirSatisfaccion 10)) persona
 
 caidaLibre :: Number -> Atraccion
@@ -58,8 +58,8 @@ mundoMaya persona = ((aumentarPorcentajeEmocion 0.1) . (aumentarPorcentajeCultur
 
 showDeMagia :: Atraccion
 showDeMagia persona
-    | (nivelCultura persona) > 50 = (aumentarSatisfaccion 20 persona)
-    | otherwise = (aumentarEmocion 30 persona)
+    | (nivelCultura persona) > 50 = aumentarSatisfaccion 20 persona
+    | otherwise = aumentarEmocion 30 persona
 
 saltoBungee :: Atraccion
 saltoBungee persona = (caidaLibre 20) . (montañaRusa 200 10) $ persona
