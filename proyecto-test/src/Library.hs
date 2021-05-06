@@ -61,6 +61,9 @@ showDeMagia persona
     | (nivelCultura persona) > 50 = aumentarSatisfaccion 20 persona
     | otherwise = aumentarEmocion 30 persona
 
+
+--Punto 3
+
 saltoBungee :: Atraccion
 saltoBungee persona = (caidaLibre 20) . (montañaRusa 200 10) $ persona
 
